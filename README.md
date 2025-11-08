@@ -22,7 +22,8 @@ Para realizar este proyecto se deben cumplir los siguientes puntos del módulo:
 
 ---
 
-## 📂 Estructura del proyecto 
+## 📂 Estructura del proyecto
+
 Python_Katas/
 │
 ├── 📄 Python_Katas.py # Archivo principal con todos los ejercicios
