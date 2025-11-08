@@ -5,17 +5,6 @@ Aquí se aplican los conceptos vistos durante la formación, como son: tipos de 
 
 En este proyecto se irán resolviendo **40 ejercicios de lógica (Katas)** cada uno centrado en un tema diferente de Python. Por ejemplo: manejo de cadenas, listas, funciones lambda, excepciones, programación funcional, y ejercicios con clases y objetos.
 Para organizar todos los ejercicios de forma práctica, se ha implementado un **menú interactivo**.
-El uso de este menú es muy práctico ya que permite elegir qué ejercicio ejecutar escribiendo simplemente su número (del 1 al 40) y presionando **Enter**.
-Además, puedes salir del programa fácilmente escribiendo "0" o la palabra **salir**.
-
-### 🧭 Beneficios del menú interactivo 
-El uso y el motivo por el cual se ha utilizado un menú interactivo para este tipo de proyectos es porque aporta las siguientes ventajas:
-- ✅ **Facilidad de uso:** puedes ejecutar cualquier ejercicio sin tener que editar el código ni buscar la función manualmente.
-- ⚙️ **Ejecución controlada:** solo se ejecuta el ejercicio que elijas, evitando que todos los resultados se muestren a la vez.
-- ⏸️ **Evita bloqueos por "input()":** esto quiere decir que si un ejercicio pide datos al usuario, puedes probar solo sin que afecte a los demás.
-- 🚀 **Mayor organización:** el código queda más limpio, ya que cada ejercicio está dentro de su propia función ("ejercicio1()", "ejercicio2()", etc).
-
-En resumen, el menú hace que probar distintas respuestas no afecte a otro ejercicio, y que quede más sencillo, ordenado y eficiente a la hora de obtener resultados.
 
 ---
 
@@ -33,4 +22,43 @@ Para realizar este proyecto se deben cumplir los siguientes puntos del módulo:
 
 ---
 
-##Estructura del proyecto 
+## 📂 Estructura del proyecto 
+Python_Katas/
+│
+├── 📄 Python_Katas.py # Archivo principal con todos los ejercicios
+└── 📄 README.md # Archivo de documentación
+
+Cada ejercicio se define dentro de una función (`def ejercicioX():`) y se puede ejecutar individualmente gracias al **menú interactivo** integrado.
+
+---
+
+## 🧭 Menú Interactivo
+
+Para no tener que ejecutar todo el código de golpe, implementé un menú que permite elegir el número de cada ejercicio que se quiere probar.
+Este sistema me ha permitido **probar, depurar y revisar** cada kata por separado sin tener que comentar o desactivar líneas de código.
+
+### 💡 Ventajas del menú: 
+- 🔢 Permite ejecutar cualquier ejercicio individualmente (del 1 al 40).
+- 🚪 Se puede salir del programa escribiendo `0`o `salir`. 
+- ⛔ Evita blooqueos por funciones con `input()` en ejercicios que no quieres probar.
+- ⚙️ Mejora la organización y la legibilidad del código.
+
+Ejemplo de como se ve el menú:
+
+📘 MENÚ DE EJERCICIOS
+
+Ejercicio 1
+
+Ejercicio 2
+...
+
+Ejercicio 40
+
+Salir
+Selecciona un ejercicio (1-40) o 0 para salir:
+
+--- 
+
+## 🧠 Contenidos y conceptos aplicados
+
+Cada grupo de ejercicios se centra en un conjunto de temas o herramientas 
