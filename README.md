@@ -25,9 +25,8 @@ Para realizar este proyecto se deben cumplir los siguientes puntos del módulo:
 ## 📂 Estructura del proyecto
 
 📂 Python_Katas/
-│
-├── Python_Katas.py # Archivo principal con los 40 ejercicios y el menú interactivo
-└── README.md # Archivo con la descripción y guía del proyecto
+-- Python_Katas.py   # Archivo principal con los 40 ejercicios y el menú interactivo
+-- README.md      # Archivo con la descripción y guía del proyecto
 
 Cada ejercicio se define dentro de una función (`def ejercicioX():`) y se puede ejecutar individualmente gracias al **menú interactivo** integrado.
 
