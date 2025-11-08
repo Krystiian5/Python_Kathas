@@ -97,8 +97,10 @@ Cada grupo de ejercicios se centra en un conjunto de temas o herramientas concre
 ---
 ## 🧭 Reflexión personal  
 
-Este proyecto me ha servido para **consolidar la base de Python** y entender mejor cómo pensar de forma lógica y estructurada al resolver problemas.  
-Durante el desarrollo, he aprendido a escribir código más ordenado, a reutilizar funciones y a manejar errores con mayor naturalidad.  
+Este proyecto me ha servido para **consolidar la base de Python** y entender mejor cómo pensar de forma lógica y estructurada al resolver problemas.
+
+Durante el desarrollo, he aprendido a escribir código más ordenado, a reutilizar funciones y a manejar errores con mayor naturalidad. 
+
 Además, el menú interactivo me ha ayudado muchísimo a probar los ejercicios de forma más cómoda y a resolver esos errores, ya que a raíz de esto se me ocurrió la idea de implementar este menú. Esto fue porque al ejecutar los ejercicios salían todos los resultados a la vez, o por ejemplo, al añadir la función `input()`se bloqueaba sin dar la opción de resolver los ejercicios siguientes.
 
 ---
