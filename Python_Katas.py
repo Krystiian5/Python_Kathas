@@ -74,7 +74,10 @@ def ejercicio5():
 """6. Escribe una función que calcule el factorial de un número de manera recursiva."""
 def ejercicio6():
     def factorial(n):
-        return math.factorial(n)
+        if n == 0 or n == 1:
+            return 1
+        else:
+            return n*factorial(n-1)
     numero = 5
     resultado = factorial(numero)
     print (f'Resultado ejercicio 6: {resultado}')
@@ -82,8 +85,7 @@ def ejercicio6():
 """7. Genera una función que convierta una lista de tuplas a una lista de strings. Usa la función map()"""
 def ejercicio7():
     def tuplas_a_strings(lista_tuplas):
-        lista_strings = list(map(str, lista_tuplas))
-        return lista_strings
+        return list(map(lambda t: ", ".join(map(str, t)), lista_tuplas))
     tuplas = [(1,2),(3,4),(5,6)]
     resultado = tuplas_a_strings(tuplas)
     print (f'Resultado ejercicio 7: {resultado}')
@@ -454,14 +456,19 @@ def ejercicio34():
             if 1 <= posicion <= len(self.ramas):
                 self.ramas.pop(posicion - 1)
             else:
-                print ("⚠️ Posición inválida: no existe esa rama.")
+                print ("Aviso: Posición inválida. No existe esa rama.")
         def info_arbol(self):
             #Devuelve la información general del árbol
             return {
-                "Longitud del tronco": self.tronco,
-                "Número de ramas": len(self.ramas),
-                "Longitudes ramas": self.ramas
+                "longitud_tronco": self.tronco,
+                "numero_ramas": len(self.ramas),
+                "longitudes_ramas": self.ramas
             }
+        def __str__(self):
+            return (
+                f'Arbol → Tronco: {self.tronco}|'
+                f'Ramas ({len(self.ramas)}): {self.ramas}'
+            )
         # Caso de uso
     arbol = Arbol()                   # 1. Crear un árbol
     arbol.crecer_tronco()             # 2. Crece el tronco
@@ -473,6 +480,7 @@ def ejercicio34():
     resultado = arbol.info_arbol()    # 7. Obtén la info
     
     print (f'Resultado ejercicio 34: {resultado}')
+    print(arbol)
 
 """35. Crea la clase UsuarioBanco ,representa a un usuario de un banco con su nombre, saldo y si tiene o no cuenta
 corriente. Proporciona métodos para realizar operaciones como retirar dinero, transferir dinero desde otro usuario y
