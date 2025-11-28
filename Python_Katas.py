@@ -1,9 +1,10 @@
-# 📦 Importaciones globales para todo el proyecto
-import statistics #Importamos el módulo estándar para operaciones estadísticas para el ejercicio 5 y 27
-import math #Importamos el módulo de matemáticas para el ejercicio 6 y 39
-from functools import reduce #Importamos el módulo reduce de functools para los ejercicios 17, 22, 23 y 24
-import operator #Importamos el módulo operator para el ejercicio 24
-from collections import Counter #Importamos el módulo Counter para el ejercicio 30
+# Importaciones globales utilizadas en varios ejercicios
+import math
+import operator
+import statistics
+from collections import Counter
+from datetime import datetime
+from functools import reduce
 
 """1. Escribe una función que reciba una cadena de texto como parámetro y devuelva un diccionario con las frecuencias
 de cada letra en la cadena. Los espacios no deben ser considerados."""
@@ -515,30 +516,24 @@ def ejercicio35():
             if cantidad > self.saldo:
                 raise Exception(f"Fondos insuficientes en la cuenta de {self.nombre}.")
             self.saldo -= cantidad
-            print(f"💸 {self.nombre} retiró {cantidad}. Saldo actual: {self.saldo}")
+            print(f"{self.nombre} retiró {cantidad}. Saldo actual: {self.saldo}")
 
         def transferir_dinero(self, otro_usuario, cantidad):
-            """Transfiere dinero desde otro usuario hacia este usuario"""
-            if not otro_usuario.cuenta_corriente or not self.cuenta_corriente:
-                raise Exception("Ambos usuarios deben tener cuenta corriente activa.")
-            if cantidad <= 0:
-                raise ValueError("La cantidad a transferir debe ser positiva.")
-            if cantidad > otro_usuario.saldo:
-                raise Exception(f"{otro_usuario.nombre} no tiene fondos suficientes para transferir.")
-            
-            otro_usuario.saldo -= cantidad
-            self.saldo += cantidad
-            print(f"🔄 Transferidos {cantidad} de {otro_usuario.nombre} a {self.nombre}.")
+            if cantidad > self.saldo:
+                raise Exception(f"{self.nombre} no tiene fondos suficientes para transferir.")
+            self.saldo -= cantidad
+            otro_usuario.saldo += cantidad
+            print(f"Transferencia realizada: {self.nombre} envió {cantidad} a {otro_usuario.nombre}.")
 
         def agregar_dinero(self, cantidad):
             """Agrega dinero al saldo"""
             if cantidad <= 0:
                 raise ValueError("La cantidad a agregar debe ser positiva.")
             self.saldo += cantidad
-            print(f"💰 {self.nombre} agregó {cantidad}. Saldo actual: {self.saldo}")
+            print(f"{self.nombre} agregó {cantidad}. Saldo actual: {self.saldo}")
 
         def __str__(self):
-            return f"👤 {self.nombre} | Saldo: {self.saldo} | Cuenta corriente: {self.cuenta_corriente}"
+            return f"{self.nombre} | Saldo: {self.saldo} | Cuenta corriente: {self.cuenta_corriente}"
 
     # Caso de uso
     alicia = UsuarioBanco("Alicia", 100, True)
@@ -552,18 +547,18 @@ def ejercicio35():
 
     # 2. Transferencia de 80 desde Bob hacia Alicia con manejo de error
     try:
-        alicia.transferir_dinero(bob, 80)
+        bob.transferir_dinero(alicia, 80)
     except Exception as e:
-        print(f"⚠️ Error en la transferencia: {e}")
+        print(f"Error en la transferencia: {e}")
 
     # 3. Alicia retira 50
     try:
         alicia.retirar_dinero(50)
     except Exception as e:
-        print(f"⚠️ Error en el retiro: {e}")
+        print(f"Error en el retiro: {e}")
 
     # Estado final
-    print("\n📊 Estado final:")
+    print("\nEstado final:")
     print(alicia)
     print(bob)
 
@@ -635,39 +630,16 @@ def ejercicio36():
 """37. Genera un programa que nos diga si es de noche, de día o tarde según la hora proporcionada por el usuario"""
 def ejercicio37():
     try:
-        hora_str = input("⏰ ¿Qué hora es? (formato HH:MM): ").strip()
-
-        # Validar formato HH:MM
-        if ":" not in hora_str:
-            print("❌ Formato incorrecto. Usa HH:MM (ejemplo: 09:45).")
-            return
-
-        partes = hora_str.split(":")
-        if len(partes) != 2:
-            print("❌ Formato incorrecto. Usa HH:MM (ejemplo: 09:45).")
-            return
-
-        horas, minutos = partes
-
-        # Convertir a enteros
-        horas = int(horas)
-        minutos = int(minutos)
-
-        # Validaciones de rango
-        if not (0 <= horas <= 23 and 0 <= minutos <= 59):
-            print("❌ Error: La hora debe estar entre 00:00 y 23:59.")
-            return
-
-        # Clasificación
-        if 6 <= horas < 12:
-            print(f"🌅 Es por la mañana ({hora_str}).")
-        elif 12 <= horas < 20:
-            print(f"🌇 Es por la tarde ({hora_str}).")
+        hora = input("Introduce la hora (HH:MM): ").strip()
+        t = datetime.strptime(hora, "%H:%M")
+        if 6 <= t.hour < 12:
+            print("Es de mañana.")
+        elif 12 <= t.hour < 20:
+            print("Es de tarde.")
         else:
-            print(f"🌙 Es por la noche ({hora_str}).")
-
+            print("Es de noche.")
     except ValueError:
-        print("❌ Error: Debes introducir la hora en formato HH:MM con números válidos.")
+        print("Formato incorrecto. Usa HH:MM.")
 
 """38. Escribe un programa que determine qué calificación en texto tiene un alumno en base a su calificación numérica.
 Las reglas de calificación son:
